@@ -34,6 +34,10 @@ def load_config():
     with open('config.json') as config_file:    
         return json.load(config_file)
 
+def create_app():
+    config = load_config()
+    return app
+
 if __name__ == '__main__':
     config = load_config()
     app.run(host=config.get('host', 'localhost'), port=config.get('port', 8000))
