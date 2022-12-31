@@ -5,12 +5,12 @@ import json
 import subprocess
 
 app = Flask(__name__)
-config = None
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def hook_listen():
-    if request.method == 'POST':
+    if request.method == 'GET':
         token = request.args.get('token')
+        config = load_config()
         if token == config['token']:
             hook = request.args.get('hook')
 
@@ -35,9 +35,7 @@ def load_config():
         return json.load(config_file)
 
 def create_app():
-    config = load_config()
     return app
 
 if __name__ == '__main__':
-    config = load_config()
     app.run(host=config.get('host', 'localhost'), port=config.get('port', 8000))
