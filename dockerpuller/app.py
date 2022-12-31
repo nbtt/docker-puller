@@ -6,9 +6,9 @@ import subprocess
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def hook_listen():
-    if request.method == 'GET':
+    if request.method == 'POST':
         token = request.args.get('token')
         config = load_config()
         if token == config['token']:
