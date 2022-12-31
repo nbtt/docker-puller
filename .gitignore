@@ -55,3 +55,4 @@ target/
 
 # Local files
 **/config.json
+**/scripts/
