@@ -38,4 +38,5 @@ def create_app():
     return app
 
 if __name__ == '__main__':
+    config = load_config()
     app.run(host=config.get('host', 'localhost'), port=config.get('port', 8000))
