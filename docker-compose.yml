@@ -8,4 +8,4 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - ./dockerpuller/test:/usr/src/app/dockerpuller/test
+      - ./dockerpuller:/usr/src/app/dockerpuller
